@@ -1,9 +1,0 @@
-bookshop/server/db/User.class
-bookshop/server/db/Operation.class
-bookshop/server/ShopBean.class
-bookshop/common/CartTO.class
-bookshop/server/Constants.class
-bookshop/common/OperationTO.class
-bookshop/common/ShopBeanI.class
-bookshop/common/BookTO.class
-bookshop/server/db/Book.class

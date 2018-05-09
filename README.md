@@ -35,7 +35,21 @@ and run each assignment.
 
 * [Java 7](http://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1880261.html) - 
 Programming language
+* [Maven](https://maven.apache.org/) - Build automation
+* [WildFly](http://wildfly.org/) - Application server
+* [GlassFish](https://javaee.github.io/glassfish/) - Application server
+* [JBoss EJB3](https://ejb3.jboss.org/) - Enterprise JavaBeans
+* [Tomcat](https://tomcat.apache.org/) - Java Servlet, JavaServer Pages
+* [Java RMI](http://www.oracle.com/technetwork/java/javase/tech/index-jsp-136424.html) - Remote method invocation 
+* [Jersey](https://jersey.github.io/) - RESTful web services
+* [Jackson](http://jackson.codehaus.org/Home) - JSON parser/writer and POJOs 
+marshalling/unmarshalling
+* [Hibernate](http://hibernate.org/orm/releases/) - ORM tool
+* [EclipseLink](https://www.eclipse.org/eclipselink/) - JPA
+* [Derby](https://db.apache.org/derby/) - RDBMS
 * [Lombok](https://projectlombok.org/) - Reduce Java boilerplate
+* [JavaParser](https://javaparser.org/) - Java source code parsing
+* [Xalan](https://xalan.apache.org/) - XSLT and XPath
 
 ---
 ## Contributing
