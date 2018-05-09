@@ -1,0 +1,937 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript">
+// <![CDATA[
+
+
+function addTag(tag) { 
+	o = document.addform; 
+	tags = o.story_tags.value;
+	while (tags.substring(tags.length-1, tags.length) == ' ') {
+		tags = tags.substring(0,tags.length-1);
+	}	
+	tags = tags + " " + tag + " ";
+	o.story_tags.value=tags; 
+	document.addform.submit();
+} 
+
+function deleteTag(tag) { 
+	o = document.addform; 
+	tags = o.story_tags.value;
+	newtags = tags.replace(tag,"");
+	o.story_tags.value=newtags;
+	o.tag_update.value=1;
+	document.addform.submit();
+} 
+
+
+function doconfirm(text,url) {
+	if (confirm(text)) document.location = url;
+}
+
+function doWindow(name,width,height) {
+	var win = window.open("",name,"toolbar=no,location=no,directories=no,status=yes,scrollbars=yes,resizable=yes,copyhistory=no,width="+width+",height="+height);
+	win.focus();
+}
+
+function sendWindow(name,width,height,url) {
+	var win = window.open("",name,"toolbar=no,location=no,directories=no,status=yes,scrollbars=yes,resizable=yes,copyhistory=no,width="+width+",height="+height);
+	win.document.location=url.replace(/&amp;/, '&');
+	win.focus();
+}
+
+function typeChange() {
+	if (document.addform) f = document.addform;
+	else f = document.storyform;
+	f.typeswitch.value=1;
+	f.submit();
+}
+
+function submitForm() {
+	if (typeof(window.editor) != "undefined") {
+		window.editor._textArea.value = editor.getHTML();
+	}
+	document.addform.submit();
+}
+
+function submitFormLink(step) {
+	if (typeof(window.editor) != "undefined") {
+		window.editor._textArea.value = editor.getHTML();
+	}
+	document.addform.step.value = step;
+	document.addform.submit();
+}
+
+function submitPrevButton() {
+	document.addform.prevbutton.value = '1';
+	if (typeof(window.editor) != "undefined") {
+		window.editor._textArea.value = editor.getHTML();
+	}
+	document.addform.submit();
+}
+
+function submitNextButton() {
+	document.addform.nextbutton.value = '1';
+	if (typeof(window.editor) != "undefined") {
+		window.editor._textArea.value = editor.getHTML();
+	}
+	document.addform.submit();
+}
+
+function cancelForm() {
+	document.addform.cancel.value = '1';
+	if (typeof(window.editor) != "undefined") {
+		window.editor._textArea.value = editor.getHTML();
+	}
+	document.addform.submit();
+}
+
+function delEditor(n) {
+	if (confirm('ALERT: Removing an editor will completely remove all their permissions from every part of your site! If you wish to revoke privileges for this part only, uncheck all the associated boxes instead of removing them. Continue if you are sure you want to remove all privileges for this user.')) {		
+		f = document.addform;
+		f.edaction.value = 'del';
+		f.edname.value = n;
+		document.forms["addform"].submit();
+	}
+}
+
+/*
+    Copyright Robert Nyman, http://www.robertnyman.com
+    Free to use if this text is included
+*/
+function getElementsByAttribute(oElm, strTagName, strAttributeName, strAttributeValue){
+    var arrElements = (strTagName == "*" && oElm.all)? oElm.all : oElm.getElementsByTagName(strTagName);
+    var arrReturnElements = new Array();
+    var oAttributeValue = (typeof strAttributeValue != "undefined")? new RegExp("(^|\\s)" + strAttributeValue + "(\\s|$)") : null;
+    var oCurrent;
+    var oAttribute;
+    for(var i=0; i<arrElements.length; i++){
+        oCurrent = arrElements[i];
+        oAttribute = oCurrent.getAttribute(strAttributeName);
+        if(typeof oAttribute == "string" && oAttribute.length > 0){
+            if(typeof strAttributeValue == "undefined" || (oAttributeValue && oAttributeValue.test(oAttribute))){
+                arrReturnElements.push(oCurrent);
+            }
+        }
+    }
+    return arrReturnElements;
+}
+
+// ]]>
+</script>
+	
+	<style type="text/css">
+		/* Default Styles */
+		
+		body {
+			margin: 0px;
+		}
+		
+		.desc {
+			padding-left: 20px;
+			font-size: 11px;
+			margin-bottom: 5px;
+		}
+		
+		input.small {
+			font-size: 10px;
+			vertical-align: middle;	
+		}
+		
+		.small { font-size: 10px; }
+		
+		.title {
+			font-size: 16px;
+		}
+		
+		.smaller {font-size: smaller;}
+		
+		.contenttitle {font-weight: bolder;}
+		
+		.story {
+			margin-bottom: 10px
+		}
+		
+		.contentinfo {
+			margin-top: 10px;
+			font-size: 10px;
+			text-align: right;
+		}
+		
+		.content {padding-bottom: 5px;}
+		
+		.red {color: #900;}
+		.green {color: #070;}
+		
+		.breadcrumbs {
+			text-align: left;
+			margin-bottom: 5px; 
+			margin-left: 10px; 
+			font-size: 9px;
+		}
+		
+		.multi_page_links {
+			text-align: right;
+		}
+		
+		.rss_link {
+			text-align: right;
+			font-size: 9px;
+		}
+		
+		.previous_page_link {
+			font-size: 11px; 
+			float: left; 
+			text-align: left;
+		}
+		
+		.next_page_link {
+			font-size: 11px; 
+			text-align: right;
+		}
+		
+		.nav_extras {
+			text-align: right;
+		}
+		
+		/*********************************************************
+		 * Versioning styles
+		 *********************************************************/
+		.version_table {
+			width: 100%;
+		}
+		
+		.version_table td {
+			width: 50%;
+			vertical-align: top;
+			border: 1px dotted #CCC;
+		}
+		
+		.version_table th .timestamp {
+			font-weight: normal;
+		}
+		
+		.version_table thead th {
+			text-align: left;
+			font-weight: bold;
+			padding-top: 10px;
+		}
+		
+		.diff_table {
+			width: 100%;
+		}		
+		
+		.diff_table thead th {
+			text-align: left;
+			font-weight: bold;
+			padding-top: 10px;
+			border-bottom: 1px dotted #CCC;
+		}
+		
+		.diff_table td {
+			text-align: center;
+		}
+		.diff_table .diff-context {
+			text-align: left;
+		}
+		
+		.diff_table .diff-addedline {
+			color: #000;
+			text-align: left;
+			background-color: #CFC;
+			width: 45%;
+		}
+		
+		.diff_table .diff-deletedline {
+			color: #000;
+			text-align: left;
+			background-color: #FCC;
+			width: 45%;
+		}
+	
+	</style>
+<style type="text/css">
+
+body {
+	 background-color: #5F7082; 
+}
+
+
+/* ------------------------------------------ */
+/*  REQUIRED CLASSES    */
+/* ------------------------------------------ */
+
+/*    LINKS   */
+a {
+	color: #990000;
+	text-decoration: none;
+}
+
+.sectionnav { 
+	font-size: 12px;
+}
+
+.sidesectionnav { 
+	font-size: 12px;
+	border-top: 1px solid #000000; 
+	border-bottom: 1px solid #000000;
+	padding-top: 2px; 
+	padding-bottom: 2px;
+}
+
+.nav { 
+	font-size: 12px;
+}
+
+.subnav { 
+	margin-left: 7px;
+	font-size: 12px;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+body { 
+	color: #444;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+
+div.hr {
+	height: 1px;
+	color: #000000;
+    background-color: #000000;
+    margin-top: 5px;
+	margin-bottom: 5px;
+	clear: both;
+}
+
+div.hr hr {
+  display: none;
+}
+
+
+div.story {
+	clear: both;
+}
+
+div.edit_links {
+	 clear: both;
+	 text-align: right;
+}
+
+
+
+/*    INPUT BUTTONS    */
+.button {
+	color: #000000;
+	border: 1px solid #555;
+	background-color: #FFFFFF;
+	color: #000000;
+}
+
+/*     TEXTFIELDS    */
+.textfield {
+	color: #000000;
+	border: 1px solid #555;
+	background-color: #fff;
+}
+
+input.small {
+	font-size: 10px;
+	vertical-align: middle;	
+}
+
+
+select, textarea, input {
+	font-size: 12px;
+}
+
+/*		THE STATUS BAR      */
+.headerbox {
+	padding: 0px;
+	margin-left: 0px;
+	margin-right: 0px;
+	text-align: right;
+}
+
+
+
+/*     THE BUTTONS IN EDIT MODE (for delete, edit, etc)    */
+.btnlink {
+	color: #990000;
+	font-size: 10px;
+	border: 1px solid #990000;
+	padding-left: 1px;
+	padding-right: 1px;
+/* 	width: 15px; */
+	margin-right: 0px;
+}
+
+.btnlink2 {
+	color: #990000;
+	font-size: 10px;
+	border: 1px solid #990000;
+	padding: 3px;
+	margin-bottom: 7px;
+}
+
+.versions {
+	color: #990000;
+	border: 1px solid #990000;
+	padding-left: 3px;
+	padding-right: 3px;
+	padding-top: 3px;
+	padding-bottom: 3px;/* 	width: 15px; */
+	margin-right: 0px;
+}
+
+/*     BLOCK DIVIDERS           */
+.block {
+	height: 1px;
+	border: 1px dashed;
+}
+
+/*     TITLES           */
+.title {
+	color: #aaa;
+	border-bottom: 1px solid #aaa;
+	padding: 5px;
+	font-size: 16px;
+	padding-left: 0px;
+	margin-bottom: 7px;
+	font-variant: small-caps;
+	font-weight: bolder;
+}
+
+.title2 {
+	border-bottom: 1px solid #aaa;
+	padding: 3px;
+	font-size: 12px;
+	padding-left: 0px;
+	margin-bottom: 3px;
+
+}
+
+.foundtext {
+	font-weight: bold;
+}
+
+th {
+	font-size: 12px;
+	font-weight: normal;
+	color: #777;
+	background-color: #e9e9e9;
+}
+
+.td0, .td1 {
+	font-size: 10px;
+	font-weight: normal;
+	color: #333;
+	padding: 2px;
+}
+
+.td1 { background-color: #f6f6ff; }
+.td0 { background-color: #e6e6ff; }
+
+.inlineth {
+	font-size: 14px;
+	font-weight: bold;
+	font-variant: small-caps;
+	background-color: #f6f6f6;
+	color: #aaa;
+	padding-left: 30px;
+}
+
+/*      DATE AND TIME DISPLAYS, ETC (below content blocks)  */
+.contentinfo {
+	color: #999;
+}
+
+.contentinfo2 {
+	color: #999;
+	border: 1px solid #990000;
+	padding-left: 1px;
+	padding-right: 1px;
+}
+
+.editinfo {
+	font-size: 10px;
+	color: #999;
+	border-bottom: 1px solid #999;
+	margin-bottom: 20px;
+}
+
+
+/*      THE, UH, I FORGOT (oh yeah... the download bar thingy)  */
+.downloadbar {
+		border: 1px solid #999;
+	padding: 5px;
+	padding-left: 15px;
+}
+
+/*********************************************************
+ * Discussion Styles
+ *********************************************************/
+.subject { 
+	font-weight: bolder; 
+	font-color: #FFFFFF;
+}
+
+.subject a {
+	color: #FFFFFF;
+}
+
+.dtext {
+	padding-top: 0px;
+	padding-bottom: 20px;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+
+.dheader {
+	font-size: 14px;
+	font-color: #FFFFFF;
+	color: #FFFFFF;
+	border-top: 1px solid #000000;
+	border-bottom: 1px solid #000000;
+	background: #5F7082;
+	padding-left: 5px;
+	padding-top: 5px;
+}
+
+.dheader a {
+	color: #FFFFFF;
+}
+
+.dheader2 {
+	border-top: 1px solid #000000;
+	border-bottom: 1px solid #000000;
+	background: #5F7082;
+	color: #FFFFFF;
+	padding-right: 5px;
+	padding-top: 5px;
+}
+
+.dheader2 a {
+	color: #FFFFFF;
+}
+
+
+.dheader3 {
+	border: 1px solid #000000;
+	background: #5F7082;
+	color: #FFFFFF;
+	font-color: #FFFFFF;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.dheader3 a {
+	color: #FFFFFF;
+}
+
+
+.dinfo1 {
+	border: 1px solid #000;
+	border: 1px solid #000000;
+	padding-left: 2px;
+	padding-right: 2px;
+}
+
+/*********************************************************
+ * Version Styles
+ *********************************************************/
+
+.versionborders {
+	border-bottom: 1px dotted #000000;
+}
+
+.versionshade {
+	border-bottom: 1px dotted #000000;
+}
+
+
+/* ------------------------------------------ */
+/* THEME-SPECIFIC CLASSES */
+/* ------------------------------------------ */
+
+.header {
+	margin-bottom: 0px;
+}
+
+.heading {
+	border-top: 1px solid #000000; 
+	border-bottom: 1px solid #000000; 
+	padding-top: 2px; padding-bottom: 2px;
+}
+
+.heading2 {
+	border-top: 1px solid #000000; 
+	padding-top: 2px; padding-bottom: 2px;
+}
+
+
+.topnav {
+	padding: 5px;
+}
+
+.leftnav {
+/* 	float: left; */
+	width: 150px;
+	padding: 5px;
+	margin-right: 5px;
+	border-right: 1px dashed #000000;
+	vertical-align: top;
+}
+
+.rightnav {
+/* 	float: left; */
+	width: 150px;
+	padding: 5px;
+	margin-left: 5px;
+	border-left: 1px dashed #000000;
+	vertical-align: top;
+}
+
+.contentarea {
+	vertical-align: top;
+	padding: 10px;
+}
+
+.contenttable {
+	border-bottom: 1px dashed #000000;
+	border-top: 1px dashed #000000;
+}
+
+.content {
+	padding: 10px;
+	background: #fff;
+}
+
+.status {
+	padding: 5px;
+	margin-right: 5px;
+	background: #;
+	color: #CCCCCC;
+}
+
+.status a {
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+.status a:hover {
+	text-decoration: underline;
+}
+
+/* more images */
+
+.topright {
+	background: white url('themes/tornpaper/images/blue/topright.gif') no-repeat;
+	width: 25px;
+	height: 11px;
+}
+
+.top {
+	background: white url('themes/tornpaper/images/blue/top.gif') repeat-x;
+	height: 11px;
+}
+
+.topleft {
+	background: white url('themes/tornpaper/images/blue/topleft.gif') no-repeat;
+	width: 25px;
+	height: 11px;
+}
+
+.right {
+	background: white url('themes/tornpaper/images/blue/right.gif') repeat-y;
+	width: 25px;
+	vertical-align: top;
+}
+
+.left {
+	background: white url('themes/tornpaper/images/blue/left.gif') repeat-y;
+	width: 25px;
+	vertical-align: top;
+}
+
+.bottomleft {
+	background: white url('themes/tornpaper/images/blue/bottomleft.gif') no-repeat;
+	width: 25px;
+	height: 16px;
+}
+
+.bottom {
+	background: white url('themes/tornpaper/images/blue/bottom.gif') repeat-x;
+	height: 16px;
+}
+
+.bottomright {
+	background: white url('themes/tornpaper/images/blue/bottomright.gif') no-repeat;
+	width: 25px;
+	height: 16px;
+}
+
+/*  the images */
+.righttop, .lefttop {
+	width: 25px;
+	height: 22px;
+	border: 0px solid gray;
+}
+
+
+</style><title>Web Architectures - 2016/17 &gt; Assignments &gt; 7th assignment</title>
+</head>
+<body style="margin: 1px">
+
+
+
+<table width="95%" align="center" cellspacing="0" cellpadding="0">
+<tbody><tr><td>
+
+<!--  Status Layout -->
+<table width="90%" align="center" cellspacing="0" cellpadding="0">
+	<tbody><tr>
+		<td width="0"></td>
+		<td></td>
+		<td width="0"></td>
+	</tr>
+	<tr>
+		<td width="0">
+		</td>
+		<td class="status">
+			<div style="height: 32px; overflow: hidden;"><script type="JavaScript">
+ var ol_textfont = "Arial,Geneva,Helvetica,sans-serif";
+				 var ol_fgcolor =  "#FFFFCC";
+				 var ol_bgcolor = "#FAE952";
+				 var ol_textcolor = "#000000";
+				 var ol_captionfont = "Arial,Geneva,Helvetica,sans-serif";
+				 var ol_capcolor = "#000000";
+				 var ol_textsize = "2";
+				 var ol_captionsize = "2";
+				 var ol_closesize = "2";
+			</script>
+			<div id="overDiv" style="position:absolute; visibility:hidden; z-index:1000;"></div>
+			<script type="JavaScript" src="Web%20Architectures%20-%202016_17%20%3E%20Assignments%20%3E%207th%20assignment_files/overlib.js"></script>
+			<form action="?&amp;site=2017WebArchitectures&amp;section=363&amp;page=1247&amp;action=site" id="loginform" name="loginform" method="post">
+<div class="headerbox small" align="center">
+ Login: <input class="textfield small" name="name" size="9" type="text"> password: <input class="textfield small" name="password" size="9" type="password"> 
+<input name="loginform" value="1" type="hidden">
+<input name="getquery" value="%26site%3D2017WebArchitectures%26section%3D363%26page%3D1247%26action%3Dsite" type="hidden">
+<input name="gotourl" value="%2Fsegue%2Findex.php%3F%26site%3D2017WebArchitectures%26section%3D363%26page%3D1247%26action%3Dsite" type="hidden">
+<input class="button small" name="button" value="GO" type="submit"><br>
+<a href="http://latemar.science.unitn.it/segue/passwd.php?action=reset" target="password" onclick='doWindow("password",400,300)'>Forgot your password?</a></div>
+</form>
+</div>		</td> 
+		<!-- end content table cell -->
+		<td width="0">
+		</td>
+	</tr>
+	<tr>
+		<td width="0"></td>
+		<td></td>
+		<td width="0"></td>
+	</tr>
+</tbody></table>
+
+</td></tr>
+<tr><td>
+
+<!--  Body Layout -->
+<table width="95%" align="center" cellspacing="0" cellpadding="0">
+
+	<tbody><tr>
+		<td class="topleft"></td>
+		<td class="top"></td>
+		<td class="topright"></td>
+	</tr>
+	<tr>
+		<td class="left">
+			<img class="lefttop" src="Web%20Architectures%20-%202016_17%20%3E%20Assignments%20%3E%207th%20assignment_files/lefttop.gif" alt="border">
+		</td>
+		<td class="content">
+			<div class="header">
+			<div style="margin-bottom: 3px" align="center"></div>
+			<div style="float: right; height: 20px; overflow: hidden;"><form action="?&amp;site=2017WebArchitectures&amp;section=363&amp;page=1247&amp;site=2017WebArchitectures&amp;section=363&amp;page=1247&amp;action=site" id="search" name="search" method="get">
+
+	<div class="headerbox small" align="center">
+ 
+		<input class="textfield small" name="search" size="9" type="text">
+		<input name="site" value="2017WebArchitectures" type="hidden">
+		<input name="section" value="363" type="hidden">
+		<input name="page" value="1247" type="hidden">
+		<input name="action" value="site" type="hidden">
+		<input class="button small" name="button" value="Find" type="submit"><br>
+	</div>
+
+</form>
+
+			</div>
+			<div style="float: left;"><div class="breadcrumbs"><a href="http://latemar.science.unitn.it/segue/index.php?&amp;action=site&amp;site=2017WebArchitectures" class="navlink">Web Architectures - 2016/17</a> &gt; <a href="http://latemar.science.unitn.it/segue/index.php?&amp;action=site&amp;site=2017WebArchitectures&amp;section=363" class="navlink">Assignments</a> &gt; <a href="http://latemar.science.unitn.it/segue/index.php?&amp;action=site&amp;site=2017WebArchitectures&amp;section=363&amp;page=1247" class="navlink">7th assignment</a></div>
+			</div>			</div>
+			
+			<div class="topnav" style="clear: both;" align="center">
+			<div class="sectionnav">
+<a href="http://latemar.science.unitn.it/segue/index.php?&amp;site=2017WebArchitectures&amp;section=362&amp;action=site" class="navlink">General info</a>
+ | <a href="http://latemar.science.unitn.it/segue/index.php?&amp;site=2017WebArchitectures&amp;section=364&amp;action=site" class="navlink">On line material</a>
+ | Assignments
+	<div class="nav_extras"></div>
+</div>
+			</div>
+				<table class="contenttable" width="100%">
+					<tbody><tr>
+				
+					<td class="leftnav">
+
+				<table width="100%" cellspacing="0" cellpadding="2">
+					<tbody><tr>
+						<td>
+
+						</td>
+					</tr>
+
+<!-- Start Nav Item 1221 -->
+					<tr>
+						<td>
+
+							<div class="nav"><a href="http://latemar.science.unitn.it/segue/index.php?&amp;site=2017WebArchitectures&amp;section=363&amp;page=1221&amp;action=site" target="_self" class="navlink">3rd assignment</a>
+
+							</div>
+						</td>
+					</tr>
+<!-- End Nav Item -->
+<!-- Start Nav Item 1218 -->
+					<tr>
+						<td>
+
+							<div class="nav"><a href="http://latemar.science.unitn.it/segue/index.php?&amp;site=2017WebArchitectures&amp;section=363&amp;page=1218&amp;action=site" target="_self" class="navlink">2nd assignment</a>
+
+							</div>
+						</td>
+					</tr>
+<!-- End Nav Item -->
+<!-- Start Nav Item 1206 -->
+					<tr>
+						<td>
+
+							<div class="nav"><a href="http://latemar.science.unitn.it/segue/index.php?&amp;site=2017WebArchitectures&amp;section=363&amp;page=1206&amp;action=site" target="_self" class="navlink">1st assignment</a>
+
+							</div>
+						</td>
+					</tr>
+<!-- End Nav Item -->
+<!-- Start Nav Item 1224 -->
+					<tr>
+						<td>
+
+							<div class="nav"><a href="http://latemar.science.unitn.it/segue/index.php?&amp;site=2017WebArchitectures&amp;section=363&amp;page=1224&amp;action=site" target="_self" class="navlink">4th assignment</a>
+
+							</div>
+						</td>
+					</tr>
+<!-- End Nav Item -->
+<!-- Start Nav Item 1226 -->
+					<tr>
+						<td>
+
+							<div class="nav"><a href="http://latemar.science.unitn.it/segue/index.php?&amp;site=2017WebArchitectures&amp;section=363&amp;page=1226&amp;action=site" target="_self" class="navlink">5th assignment</a>
+
+							</div>
+						</td>
+					</tr>
+<!-- End Nav Item -->
+<!-- Start Nav Item 1243 -->
+					<tr>
+						<td>
+
+							<div class="nav"><a href="http://latemar.science.unitn.it/segue/index.php?&amp;site=2017WebArchitectures&amp;section=363&amp;page=1243&amp;action=site" target="_self" class="navlink">6th assignment</a>
+
+							</div>
+						</td>
+					</tr>
+<!-- End Nav Item -->
+<!-- Start Nav Item 1247 -->
+					<tr>
+						<td>
+
+							<div class="nav">7th assignment
+							</div>
+						</td>
+					</tr>
+<!-- End Nav Item -->
+				</tbody></table>
+<div class="nav_extras"></div>
+
+					</td>				<td class="contentarea">
+				
+				
+				<div class="title">7th assignment</div>
+				<div class="story">
+					<div class="story">Write a web site that reuses what you did in the
+ 4th assignment, In other word, create a web site which replaces the 
+desktop interface you had in the 4th assignment.<br>
+<br>
+Optionally, create a filter so that when accessing the admin page, access is denied if the user is not the admin.<br>
+<br>
+To deploy your application on&nbsp; separate Web Tier (a stand-alone Tomcat) and Application Tier (Wildfly), read the following:<br>
+<ul>
+    <li><a href="http://macintoshnotes.wordpress.com/2013/02/16/accessing-remote-ejb-on-jboss-as-7-1-from-web-application/" style="color: rgb(153, 0, 0); text-decoration: none;">Comment on separate deployment of war and ejb-jar on different machines</a></li>
+</ul>
+Same format as usual.<br>
+<br>
+Deadline: Dec 3, 23:59</div>
+				</div>
+				<br>
+				<br>
+				<div class="rss_link">
+					<a href="http://latemar.science.unitn.it/segue/index.php?&amp;site=2017WebArchitectures&amp;section=363&amp;page=1247&amp;action=rss">
+						<img src="Web%20Architectures%20-%202016_17%20%3E%20Assignments%20%3E%207th%20assignment_files/rss_icon02.png" alt="rss" title="RSS feed of this page" border="0"> RSS
+					</a>
+				</div>				
+				</td>
+								
+					</tr>
+				</tbody></table>
+			
+			<div class="topnav" align="center">
+			
+			<div class="sectionnav">
+<a href="http://latemar.science.unitn.it/segue/index.php?&amp;site=2017WebArchitectures&amp;section=362&amp;action=site" class="navlink">General info</a>
+ | <a href="http://latemar.science.unitn.it/segue/index.php?&amp;site=2017WebArchitectures&amp;section=364&amp;action=site" class="navlink">On line material</a>
+ | Assignments
+	<div class="nav_extras"></div>
+</div>
+			
+			</div>
+			
+			<center></center><div style="font-size: 9px;" align="right"><img src="Web%20Architectures%20-%202016_17%20%3E%20Assignments%20%3E%207th%20assignment_files/rss_icon02.png" alt="rss" border="0"> <a href="http://latemar.science.unitn.it/segue/viewrss.php?site=2017WebArchitectures" target="rss" onclick='doWindow("rss",450,200)' class="navlink" title="click for more RSS feeds...">More RSS...</a></div>
+<br>
+<div align="right">
+<div style="font-size: 1px;">powered by segue</div>
+<a href="http://segue.sourceforge.net/" target="_blank">
+<img src="Web%20Architectures%20-%202016_17%20%3E%20Assignments%20%3E%207th%20assignment_files/segue_logo_trans_solid.gif" alt="segue_logo" border="0">
+</a>
+</div>			
+		</td> 
+		<!-- end content table cell -->
+		<td class="right">
+			<img class="righttop" src="Web%20Architectures%20-%202016_17%20%3E%20Assignments%20%3E%207th%20assignment_files/righttop.gif" alt="rightop">
+		</td>
+	</tr>
+	<tr>
+		<td class="bottomleft">&nbsp;</td>
+		<td class="bottom">&nbsp;</td>
+		<td class="bottomright">&nbsp;</td>
+	</tr>
+</tbody></table>
+</td></tr>
+</tbody></table>
+
+
+
+	
+</body></html>

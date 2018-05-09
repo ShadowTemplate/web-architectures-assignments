@@ -1,0 +1,132 @@
+"Functions, relations, and sets",CORE,6
+"Basic logic",CORE,10
+"Proof techniques",CORE,12
+"Basics of counting",CORE,5
+"Graphs and trees",CORE,4
+"Discrete probability",CORE,6
+"Fundamental programming constructs",CORE,9
+"Algorithms and problem-solving",CORE,6
+"Fundamental data structures",CORE,14
+"Recursion",CORE,5
+"Event-driven programming",CORE,4
+"Basic algorithmic analysis",CORE,4
+"Algorithmic strategies",CORE,6
+"Fundamental computing algorithms",CORE,12
+"Distributed algorithms",CORE,3
+"Basic computability",CORE,6
+"The complexity classes P and NP",ELECTIVE,
+"Automata theory",ELECTIVE,
+"Advanced algorithmic analysis",ELECTIVE,
+"Cryptographic algorithms",ELECTIVE,
+"Geometric algorithms",ELECTIVE,
+"Parallel algorithms",ELECTIVE,
+"Digital logic and digital systems",CORE,6
+"Machine level representation of data",CORE,3
+"Assembly level machine organization",CORE,9
+"Memory system organization and architecture",CORE,5
+"Interfacing and communication",CORE,3
+"Functional organization",CORE,7
+"Multiprocessing and alternative architectures",CORE,3
+"Performance enhancements",ELECTIVE,
+"Architecture for networks and distributed systems",ELECTIVE,
+"Overview of operating systems",CORE,2
+"Operating system principles",CORE,2
+"Concurrency",CORE,6
+"Scheduling and dispatch",CORE,3
+"Memory management",CORE,5
+"Device management",ELECTIVE,
+"Security and protection",ELECTIVE,
+"File systems",ELECTIVE,
+"Real-time and embedded systems",ELECTIVE,
+"Fault tolerance",ELECTIVE,
+"System performance evaluation",ELECTIVE,
+"Scripting",ELECTIVE,
+"Introduction to net-centric computing",CORE,2
+"Communication and networking",CORE,7
+"Network security",CORE,3
+"The web as an example of client-server computing",CORE,3
+"Building web applications",ELECTIVE,
+"Network management",ELECTIVE,
+"Compression and decompression",ELECTIVE,
+"Multimedia data technologies",ELECTIVE,
+"Wireless and mobile computing",ELECTIVE,
+"Overview of programming languages",CORE,2
+"Virtual machines",CORE,1
+"Introduction to language translation",CORE,2
+"Declarations and types",CORE,3
+"Abstraction mechanisms",CORE,3
+"Object-oriented programming",CORE,10
+"Functional programming",ELECTIVE,
+"Language translation systems",ELECTIVE,
+"Type systems",ELECTIVE,
+"Programming language semantics",ELECTIVE,
+"Programming language design",ELECTIVE,
+"Foundations of human-computer interaction",CORE,6
+"Building a simple graphical user interface",CORE,2
+"Human-centered software evaluation",ELECTIVE,
+"Human-centered software development",ELECTIVE,
+"Graphical user-interface design",ELECTIVE,
+"Graphical user-interface programming",ELECTIVE,
+"HCI aspects of multimedia systems",ELECTIVE,
+"HCI aspects of collaboration and communication",ELECTIVE,
+"Fundamental techniques in graphics",CORE,2
+"Graphic systems",CORE,1
+"Graphic communication",ELECTIVE,
+"Geometric modeling",ELECTIVE,
+"Basic rendering",ELECTIVE,
+"Advanced rendering",ELECTIVE,
+"Advanced techniques",ELECTIVE,
+"Computer animation",ELECTIVE,
+"Visualization",ELECTIVE,
+"Virtual reality",ELECTIVE,
+"Computer vision",ELECTIVE,
+"Fundamental issues in intelligent systems",CORE,1
+"Search and constraint satisfaction",CORE,5
+"Knowledge representation and reasoning",CORE,4
+"Advanced search",ELECTIVE,
+"Advanced knowledge representation and reasoning",ELECTIVE,
+"Agents",ELECTIVE,
+"Natural language processing",ELECTIVE,
+"Machine learning and neural networks",ELECTIVE,
+"AI planning systems",ELECTIVE,
+"Robotics",ELECTIVE,
+"Information models and systems",CORE,3
+"Database systems",CORE,3
+"Data modeling",CORE,4
+"Relational databases",ELECTIVE,
+"Database query languages",ELECTIVE,
+"Relational database design",ELECTIVE,
+"Transaction processing",ELECTIVE,
+"Distributed databases",ELECTIVE,
+"Physical database design",ELECTIVE,
+"Data mining",ELECTIVE,
+"Information storage and retrieval",ELECTIVE,
+"Hypertext and hypermedia",ELECTIVE,
+"Multimedia information and systems",ELECTIVE,
+"Digital libraries",ELECTIVE,
+"History of computing",CORE,1
+"Social context of computing",CORE,3
+"Methods and tools of analysis",CORE,2
+"Professional and ethical responsibilities",CORE,3
+"Risks and liabilities of computer-based systems",CORE,2
+"Intellectual property",CORE,3
+"Privacy and civil liberties",CORE,2
+"Computer crime",ELECTIVE,
+"Economic issues in computing",ELECTIVE,
+"Philosophical frameworks",ELECTIVE,
+"Software design",CORE,8
+"Using APIs",CORE,5
+"Software tools and environments",CORE,3
+"Software processes",CORE,2
+"Software requirements and specifications",CORE,4
+"Software validation",CORE,3
+"Software evolution",CORE,3
+"Software project management",CORE,3
+"Component-based computing",ELECTIVE,
+"Formal methods",ELECTIVE,
+"Software reliability",ELECTIVE,
+"Specialized systems development",ELECTIVE,
+"Numerical analysis",ELECTIVE,
+"Operations research",ELECTIVE,
+"Modeling and simulation",ELECTIVE,
+"High-performance computing",ELECTIVE,

@@ -1,0 +1,17 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-ear" name="server-ear:ear exploded">
+    <output-path>$PROJECT_DIR$/server-ear/target/server-ear</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="server-ear/javaeeApplication/JavaEE" />
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/server-ear/target/server-ear/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="archive" name="server-ejb.jar">
+        <element id="artifact" artifact-name="server-ejb:ejb exploded" />
+      </element>
+      <element id="directory" name="lib">
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/apache/derby/derbytools/10.12.1.1/derbytools-10.12.1.1.jar" output-file-name="derbytools.jar" />
+      </element>
+    </root>
+  </artifact>
+</component>

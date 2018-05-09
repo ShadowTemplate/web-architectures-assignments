@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="BookshopPU/Hibernate" uuid="b68050d3-21c4-4b51-8cfa-318259843a87">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <first-sync>true</first-sync>
+      <user-name>root</user-name>
+      <user-password>dfc0dfcedfc8dfc9df90dfcedfcfdfd8dfc8dfd3df90df85df85dfc6dfc5dfc9dfcbdfc6dfc2dfc5dfd9dfdedf90df9bdf9fdf98df9ddf85dfc8dfc5dfc5dfc1dfd9dfc2dfc5dfdadf91dfc9dfd8dfcfdfcbdfdedfcfdf97dfdedfd8dfdfdfcf</user-password>
+    </data-source>
+  </component>
+</project>

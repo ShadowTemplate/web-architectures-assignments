@@ -1,0 +1,23 @@
+body {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.grid {
+    text-align: center;
+}
+
+.gridStyle {
+    border: 1px solid rgb(212, 212, 212);
+    height: 185px;
+}
+
+textarea {
+    width: 500px;
+    height: 200px;
+}
+
+.dangerButton {
+    background-color: #f44336;
+}

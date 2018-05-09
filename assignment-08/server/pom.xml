@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <name>04-server</name>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>server</groupId>
+    <artifactId>server</artifactId>
+    <version>v1.0</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>server-ejb</module>
+        <module>server-ear</module>
+    </modules>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <version.wildfly>10.0.0.CR2</version.wildfly>
+        <version.ear.plugin>2.10.1</version.ear.plugin>
+        <version.jboss-ejb-api>1.0.0.Final</version.jboss-ejb-api>
+        <version.ejb.plugin>2.5.1</version.ejb.plugin>
+
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>server</groupId>
+                <artifactId>server-ejb</artifactId>
+                <version>${project.version}</version>
+                <type>ejb</type>
+            </dependency>
+
+            <dependency>
+                <groupId>org.wildfly.bom</groupId>
+                <artifactId>jboss-javaee-7.0-wildfly</artifactId>
+                <version>${version.wildfly}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>
