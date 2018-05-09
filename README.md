@@ -2,14 +2,14 @@
 
 A collection of assignments for the course of Web Architectures. Please refer 
 to each of the following folders to get further details:
-* [Assignment 1]() [[Instructions]()] [[Report]()]
-* [Assignment 2]() [[Instructions]()] [[Report]()]
-* [Assignment 3]() [[Instructions]()] [[Report]()]
-* [Assignment 4]() [[Instructions]()] [[Report]()]
-* [Assignment 5]() [[Instructions]()] [[Report]()]
-* [Assignment 6]() [[Instructions]()] [[Report]()]
-* [Assignment 7]() [[Instructions]()] [[Report]()]
-* [Assignment 8]() [[Instructions]()] [[Report]()]
+* [Assignment 1](https://github.com/ShadowTemplate/web-architectures-assignments/tree/master/assignment-01) [[Instructions](https://rawgit.com/ShadowTemplate/web-architectures-assignments/master/assignment-01/assignment/Web%20Architectures%20-%202016_17%20%3E%20Assignments%20%3E%201st%20assignment.htm)] [[Report](https://github.com/ShadowTemplate/web-architectures-assignments/blob/master/assignment-01/report.pdf)]
+* [Assignment 2](https://github.com/ShadowTemplate/web-architectures-assignments/tree/master/assignment-02) [[Instructions](https://rawgit.com/ShadowTemplate/web-architectures-assignments/master/assignment-02/assignment/Web%20Architectures%20-%202016_17%20%3E%20Assignments%20%3E%202nd%20assignment.htm)] [[Report](https://github.com/ShadowTemplate/web-architectures-assignments/blob/master/assignment-02/report.pdf)]
+* [Assignment 3](https://github.com/ShadowTemplate/web-architectures-assignments/tree/master/assignment-03) [[Instructions](https://rawgit.com/ShadowTemplate/web-architectures-assignments/master/assignment-03/assignment/fixed/bookmarks-mozilla-16-8-16.html)] [[Report](https://github.com/ShadowTemplate/web-architectures-assignments/blob/master/assignment-03/report.pdf)]
+* [Assignment 4](https://github.com/ShadowTemplate/web-architectures-assignments/tree/master/assignment-04) [[Instructions](https://rawgit.com/ShadowTemplate/web-architectures-assignments/master/assignment-04/assignment/Web%20Architectures%20-%202016_17%20%3E%20Assignments%20%3E%204th%20assignment.htm)] [[Report](https://github.com/ShadowTemplate/web-architectures-assignments/blob/master/assignment-04/report.pdf)]
+* [Assignment 5](https://github.com/ShadowTemplate/web-architectures-assignments/tree/master/assignment-05) [[Instructions](https://rawgit.com/ShadowTemplate/web-architectures-assignments/master/assignment-05/assignment/Web%20Architectures%20-%202016_17%20%3E%20Assignments%20%3E%205th%20assignment.htm)] [[Report](https://github.com/ShadowTemplate/web-architectures-assignments/blob/master/assignment-05/report.pdf)]
+* [Assignment 6](https://github.com/ShadowTemplate/web-architectures-assignments/tree/master/assignment-06) [[Instructions](https://rawgit.com/ShadowTemplate/web-architectures-assignments/master/assignment-06/assignment/Web%20Architectures%20-%202016_17%20%3E%20Assignments%20%3E%206th%20assignment.htm)] [[Report](https://github.com/ShadowTemplate/web-architectures-assignments/blob/master/assignment-06/report.pdf)]
+* [Assignment 7](https://github.com/ShadowTemplate/web-architectures-assignments/tree/master/assignment-07) [[Instructions](https://rawgit.com/ShadowTemplate/web-architectures-assignments/master/assignment-07/assignment/Web%20Architectures%20-%202016_17%20%3E%20Assignments%20%3E%207th%20assignment.htm)] [[Report](https://github.com/ShadowTemplate/web-architectures-assignments/blob/master/assignment-07/report.pdf)]
+* [Assignment 8](https://github.com/ShadowTemplate/web-architectures-assignments/tree/master/assignment-08) [[Instructions](https://rawgit.com/ShadowTemplate/web-architectures-assignments/master/assignment-08/assignment/Web%20Architectures%20-%202016_17%20%3E%20Assignments%20%3E%208th%20assignment.htm)] [[Report](https://github.com/ShadowTemplate/web-architectures-assignments/blob/master/assignment-08/report.pdf)]
 
 ---
 ## Information
