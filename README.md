@@ -22,7 +22,7 @@ to each of the following folders to get further details:
 
 **Development year(s)**: `2016-2017`
 
-**Authors**: [ShadowTemplate](https://github.com/ShadowTemplate)
+**Author(s)**: [ShadowTemplate](https://github.com/ShadowTemplate)
 
 ---
 ## Getting Started
